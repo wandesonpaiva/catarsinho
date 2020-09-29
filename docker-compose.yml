@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  db:
+    image: postgres:10.10
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - bundle:/bundle
+      - .:/home/app/webapp
+    # command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bash -c "sleep 1000000"
+  
+volumes:
+  bundle:
+  postgres:
