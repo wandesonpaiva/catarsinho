@@ -13,6 +13,8 @@ class Project < ApplicationRecord
 
 	validate :due_date_cannot_be_in_the_past_or_30_days_from_today
 
+	belongs_to :user
+
 	def due_date_cannot_be_in_the_past_or_30_days_from_today
 		if due_date.present? and (due_date < Date.today or due_date > Date.today + 30.days)
 			errors.add(:due_date, "can't be in the past or 30 days from today")
