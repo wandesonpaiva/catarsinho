@@ -1,5 +1,11 @@
 <h1>Projects</h1>
 <hr>
+<%= search_form_for @q do |f| %>
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit %>
+<% end %>
+<hr>
 <div class="row">
 
   <% @projects.each do |project| %>
@@ -16,5 +22,5 @@
     </div>
   <% end %>
 </div>
-  <br>
-  <%= link_to 'New Project', new_project_path, class: 'btn btn-success' %>
+<br>
+<%= link_to 'New Project', new_project_path, class: 'btn btn-success' %>
