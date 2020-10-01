@@ -23,7 +23,7 @@ class Project < ApplicationRecord
 	end
 
 	def donators
-		Donation.joins(:user).where(project_id: self.id).group('users.email').pluck('users.email').to_sentence
+		Donation.joins(:user).where(project_id: self.id).group('users.id').pluck('users.name').to_sentence
 	end
 
 	def total_received
