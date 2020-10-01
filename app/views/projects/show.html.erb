@@ -1,10 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @project.title %></h1>
+<hr>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
+<%= link_to 'Donate', new_project_donation_path(@project), class: 'btn btn-success' %>
+<br>
+<br>
 <p>
   <strong>Description:</strong>
   <%= @project.description %>
@@ -17,9 +16,22 @@
 
 <p>
   <strong>Due date:</strong>
-  <%= @project.due_date %>
+  <%= @project.due_date.strftime("%d/%m/%Y") %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %> |
-<%= link_to 'Donate', new_project_donation_path(@project) %>
+<p>
+  <strong>Total received:</strong>
+  <%= @project.total_received %>
+</p>
+
+<p>
+  <strong>Donators:</strong>
+  <%= @project.donators %>
+</p>
+
+<% if @project.user == current_user %>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Destroy', edit_project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
+<%= link_to 'Back', projects_path %>
+
