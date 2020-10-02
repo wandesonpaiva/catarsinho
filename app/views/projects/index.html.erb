@@ -1,6 +1,6 @@
 <h1>Projects</h1>
 <hr>
-<%= search_form_for @q, :html => {class: 'form-inline' } do |f| %>
+<%= search_form_for @q, html: {class: 'form-inline' } do |f| %>
   <%= f.search_field :title_cont, class: 'form-control', placeholder: 'Title' %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
@@ -9,8 +9,12 @@
 
   <% @projects.each do |project| %>
     <div class="col-lg-6">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card" style="width: 100%">
+        <% if project.image.present? %>
+          <div class="symbol symbol-50 symbol-lg-120">
+            <%= image_tag(url_for(project.image), style: 'height: auto; width: auto; display: block;', class: 'card-img-top img-thumbnail') %>
+          </div>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= project.title %></h5>
           <p class="card-text"><%= project.description %></p>

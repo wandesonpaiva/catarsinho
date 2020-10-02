@@ -8,6 +8,7 @@
     <%= f.input :description %>
     <%= f.input :target %>
     <%= f.input :due_date %>
+    <%= f.input :image, type: :file %>
     <%= f.input :user_id, as: :hidden, input_html: {value: current_user.id} %>
   </div>
 

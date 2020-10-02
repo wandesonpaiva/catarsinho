@@ -4,6 +4,13 @@
 <%= link_to 'Donate', new_project_donation_path(@project), class: 'btn btn-success' %>
 <br>
 <br>
+
+<% if @project.image.present? %>
+
+    <%= image_tag(url_for(@project.image), style: 'height: auto; width: auto; display: block;', class: 'card-img-top img-thumbnail') %>
+
+<% end %>
+
 <p>
   <strong>Description:</strong>
   <%= @project.description %>
