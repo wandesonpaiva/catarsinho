@@ -14,7 +14,7 @@ class Project < ApplicationRecord
 	validate :due_date_cannot_be_in_the_past_or_30_days_from_today
 
 	belongs_to :user
-	has_many :donations
+	has_many :donations, dependent: :delete_all
 
 	has_one_attached :image
 

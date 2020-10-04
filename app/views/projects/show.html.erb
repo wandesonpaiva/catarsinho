@@ -40,7 +40,7 @@
   <%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>
 <% if policy(@project).destroy? %>
-  <%= link_to 'Destroy', edit_project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 <%= link_to 'Back', projects_path %>
 
