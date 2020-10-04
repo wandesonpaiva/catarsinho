@@ -1,16 +1,16 @@
 <h1><%= @project.title %></h1>
 <hr>
 
-<%= link_to 'Donate', new_project_donation_path(@project), class: 'btn btn-success' %>
+<%# if policy(Donation).edit? %>
+  <%= link_to 'Donate', new_project_donation_path(@project), class: 'btn btn-success' %>
+<%# end %>
 <br>
 <br>
 
 <% if @project.image.present? %>
-
-    <%= image_tag(url_for(@project.image), style: 'height: auto; width: auto; display: block;', class: 'card-img-top img-thumbnail') %>
-
+    <%= image_tag(url_for(@project.image), style: 'height: auto; width: auto; display: block; max-height: 300px; margin-left: auto; margin-right: auto') %>
 <% end %>
-
+<br>
 <p>
   <strong>Description:</strong>
   <%= @project.description %>
@@ -28,7 +28,7 @@
 
 <p>
   <strong>Total received:</strong>
-  <%= @project.total_received %>
+  <%= number_to_currency(@project.total_received) %>
 </p>
 
 <p>
@@ -36,8 +36,10 @@
   <%= @project.donators %>
 </p>
 
-<% if @project.user == current_user %>
+<% if policy(@project).edit? %>
   <%= link_to 'Edit', edit_project_path(@project) %> |
+<% end %>
+<% if policy(@project).destroy? %>
   <%= link_to 'Destroy', edit_project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 <%= link_to 'Back', projects_path %>

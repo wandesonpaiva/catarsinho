@@ -12,7 +12,7 @@
       <div class="card" style="width: 100%">
         <% if project.image.present? %>
           <div class="symbol symbol-50 symbol-lg-120">
-            <%= image_tag(url_for(project.image), style: 'height: auto; width: auto; display: block;', class: 'card-img-top img-thumbnail') %>
+            <%= image_tag(url_for(project.image), style: 'height: auto; width: auto; display: block; max-height: 200px; margin-left: auto; margin-right: auto', class: 'card-img-top img-thumbnail') %>
           </div>
         <% end %>
         <div class="card-body">

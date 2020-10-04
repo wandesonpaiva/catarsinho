@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'ransack'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
