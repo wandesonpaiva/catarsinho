@@ -1,9 +1,9 @@
 <h1><%= @project.title %></h1>
 <hr>
 
-<%# if policy(Donation).edit? %>
+<% if !@project.is_expired? %>
   <%= link_to 'Donate', new_project_donation_path(@project), class: 'btn btn-success' %>
-<%# end %>
+<% end %>
 <br>
 <br>
 
@@ -18,7 +18,7 @@
 
 <p>
   <strong>Target:</strong>
-  <%= @project.target %>
+  <%= number_to_currency(@project.target) %>
 </p>
 
 <p>

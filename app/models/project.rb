@@ -36,4 +36,8 @@ class Project < ApplicationRecord
 		total
 	end
 
+	def is_expired?
+		due_date.present? and due_date < Date.today
+	end
+
 end
