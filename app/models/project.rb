@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   validates :description, presence: true
   validates :due_date, presence: true
   validates :target, presence: true
+  validates :image, presence: true
 
   validates :title, length: { maximum: 64 }
   validates :description, length: { maximum: 512 }
