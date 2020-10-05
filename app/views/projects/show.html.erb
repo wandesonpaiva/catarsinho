@@ -31,7 +31,7 @@
   <%= number_to_currency(@project.total_received) %>
 </p>
 
-<p>
+<p >
   <strong>Donators:</strong>
   <%= @project.donators %>
 </p>
@@ -40,7 +40,7 @@
   <%= link_to 'Edit', edit_project_path(@project) %> |
 <% end %>
 <% if policy(@project).destroy? %>
-  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, style: 'color: red;' %> |
 <% end %>
 <%= link_to 'Back', projects_path %>
 

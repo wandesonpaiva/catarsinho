@@ -3,8 +3,27 @@
 <%= search_form_for @q, html: {class: 'form-inline' } do |f| %>
   <%= f.search_field :title_cont, class: 'form-control', placeholder: 'Title' %>
   <%= f.submit class: 'btn btn-primary' %>
+
+  <div class="dropdown">
+    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Order
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= sort_link @q, :title %><br>
+      <%= sort_link @q, :target %><br>
+      <%= sort_link @q, :due_date %>
+    </div>
+  </div>
 <% end %>
-<%#= select('category', 'id', Category.order('name ASC').all.map{ |c| [c.name, c.id] }) %>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+  <%#= sort_link(@q, :title, { class: 'btn btn-secondary'}) %>
+  <%#= sort_link(@q, :target, class: 'btn btn-secondary') %>
+  <%#= sort_link(@q, :due_date, class: 'btn btn-secondary') %>
+<!--  <button type="button" class="btn">Left</button>-->
+<!--  <button type="button" class="btn btn-secondary">Middle</button>-->
+<!--  <button type="button" class="btn btn-secondary">Right</button>-->
+</div>
 <br>
 <div class="row">
 
@@ -19,6 +38,8 @@
         <div class="card-body">
           <h5 class="card-title"><%= project.title %></h5>
           <p class="card-text"><%= project.description %></p>
+          <p class="card-text"><strong>target: </strong> <%= number_to_currency(project.target) %></p>
+          <p class="card-text"><strong>Due date: </strong><%= project.due_date.strftime("%d/%m/%Y") %></p>
           <%= link_to 'Visualize', project, class: 'btn btn-primary' %>
           <%= link_to 'Donate', new_project_donation_path(project), class: 'btn btn-success' %>
         </div>
