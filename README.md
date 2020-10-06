@@ -21,7 +21,11 @@ Access the container of application:
 
 `docker-compose exec app bash -l`
 
-In the container, create the database and run the migrations:
+In the container, install the application: 
+
+`bundle install`
+
+Create the database and run the migrations:
 
 `bundle exec rails db:create db:migrate`
 
