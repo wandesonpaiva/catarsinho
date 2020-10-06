@@ -13,6 +13,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'devise'
 require 'pundit/rspec'
+require 'faker'
 
 ActiveRecord::Migration.maintain_test_schema!
 
