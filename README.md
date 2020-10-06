@@ -1,24 +1,30 @@
 # README
+[![Heroku App Status](http://heroku-shields.herokuapp.com/wp-catarsinho)](https://vast-inlet-28343.herokuapp.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Catarsinho
 
-Things you may want to cover:
+Follow this steps to run the application: 
 
-* Ruby version
+First, download the source code:
 
-* System dependencies
+`git clone https://github.com/wandesonpaiva/catarsinho.git`
 
-* Configuration
+With docker and docker-compose installed, run:
 
-* Database creation
+`docker-compose build`
 
-* Database initialization
+Then:
 
-* How to run the test suite
+`docker-compose up`
 
-* Services (job queues, cache servers, search engines, etc.)
+Access the container of application:
 
-* Deployment instructions
+`docker-compose exec app bash -l`
 
-* ...
+In the container, create the database and run the migrations:
+
+`bundle exec rails db:create db:migrate`
+
+To finish, run the application server:
+
+`bundle exec rails s -b 0.0.0.0`
