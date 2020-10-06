@@ -1,5 +1,5 @@
 # README
-[![Heroku App Status](http://heroku-shields.herokuapp.com/wp-catarsinho)](https://vast-inlet-28343.herokuapp.com)
+[![Heroku App Status](http://heroku-shields.herokuapp.com/wp-catarsinho)](https://wp-catarsinho.herokuapp.com)
 
 # Catarsinho
 
@@ -17,7 +17,7 @@ Then:
 
 `docker-compose up`
 
-Access the container of application:
+Access the container of the application:
 
 `docker-compose exec app bash -l`
 
